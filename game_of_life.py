@@ -75,19 +75,19 @@ def show_frame(arr):
         print()
 
 
-# arr = np.random.randint(2, size=(50, 50))
+arr = np.random.randint(2, size=(50, 100))
 
-arr = [[0 for i in range(50)] for j in range(50)]
+# arr = [[0 for i in range(50)] for j in range(50)]
 
-#    ████
-#      ████
-#        ██
-i = 5
-arr[0 + i][0 + i] = 1
-arr[0 + i][1 + i] = 1
-arr[1 + i][1 + i] = 1
-arr[1 + i][2 + i] = 1
-arr[2 + i][2 + i] = 1
+# # ████
+# #   ████
+# #     ██
+# i = 5
+# arr[0 + i][0 + i] = 1
+# arr[0 + i][1 + i] = 1
+# arr[1 + i][1 + i] = 1
+# arr[1 + i][2 + i] = 1
+# arr[2 + i][2 + i] = 1
 
 #   ██
 #     ██
@@ -99,13 +99,9 @@ arr[2 + i][0 + i] = 1
 arr[2 + i][1 + i] = 1
 arr[2 + i][2 + i] = 1
 
-# arr = np.zeros((10, 10))
 show_frame(arr)
-# print("--------------------------------------------------------")
 
 for _ in range(10000):
     time.sleep(.1)
     arr = update_frame(arr)
     show_frame(arr)
-
-    # print("--------------------------------------------------------")
