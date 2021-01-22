@@ -4,7 +4,13 @@ import os
 
 
 def update_frame(arr):
-    new_arr = arr.copy()
+
+    new_arr = [[0 for i in range(len(arr[0]))] for j in range(len(arr))]
+
+    for i, row in enumerate(arr):
+        for j, item in enumerate(row):
+            new_arr[i][j] = arr[i][j]
+
     for i, row in enumerate(arr):
         for j, item in enumerate(row):
             # print(i, j, item)
@@ -63,19 +69,43 @@ def show_frame(arr):
             if y == 0:
                 print('  ', end='')
             else:
-                # print('██', end='')
-                print(' 1', end='')
+                print('██', end='')
+                # print(' 1', end='')
 
         print()
 
 
-arr = np.random.randint(2, size=(150, 300))
+# arr = np.random.randint(2, size=(50, 50))
+
+arr = [[0 for i in range(50)] for j in range(50)]
+
+#    ████
+#      ████
+#        ██
+i = 5
+arr[0 + i][0 + i] = 1
+arr[0 + i][1 + i] = 1
+arr[1 + i][1 + i] = 1
+arr[1 + i][2 + i] = 1
+arr[2 + i][2 + i] = 1
+
+#   ██
+#     ██
+# ██████
+i = 10
+arr[0 + i][1 + i] = 1
+arr[1 + i][2 + i] = 1
+arr[2 + i][0 + i] = 1
+arr[2 + i][1 + i] = 1
+arr[2 + i][2 + i] = 1
+
 # arr = np.zeros((10, 10))
 show_frame(arr)
 # print("--------------------------------------------------------")
 
 for _ in range(10000):
+    time.sleep(.1)
     arr = update_frame(arr)
     show_frame(arr)
+
     # print("--------------------------------------------------------")
-    time.sleep(0.0001)
