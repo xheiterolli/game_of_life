@@ -125,6 +125,7 @@ def print_preset(val):
         arr = update_frame(arr)
         show_frame(arr)
 
+print_title_card()
 print("1. Glider")
 print("2. Stable Community")
 print("3. Random Generation")
