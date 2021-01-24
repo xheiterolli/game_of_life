@@ -3,7 +3,8 @@ import numpy as np
 import os
 
 def print_title_card():
-    title = "  _____                      ___  __   _ ___   \n / ___/__ ___ _  ___   ___  / _/ / /  (_) _/__ \n/ (_ / _ `/  ' \/ -_) / _ \/ _/ / /__/ / _/ -_)\n\___/\_,_/_/_/_/\__/  \___/_/  /____/_/_/ \__/ \n"
+    space = "                                                                           "
+    title = space + "  _____                      ___  __   _ ___   \n" + space + " / ___/__ ___ _  ___   ___  / _/ / /  (_) _/__ \n" + space + "/ (_ / _ `/  ' \/ -_) / _ \/ _/ / /__/ / _/ -_)\n" + space + "\___/\_,_/_/_/_/\__/  \___/_/  /____/_/_/ \__/ \n"
     os.system("cls")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
     print(title)
@@ -66,7 +67,6 @@ def update_frame(arr):
 
     return new_arr
 
-
 def show_frame(arr):
     # os.system("cls")
 
@@ -80,35 +80,53 @@ def show_frame(arr):
 
         print()
 
+def print_glider(arr):
 
-arr = np.random.randint(2, size=(50, 100))
+    #   ██
+    #     ██
+    # ██████
 
-# arr = [[0 for i in range(50)] for j in range(50)]
+    i = 5
+    arr[0 + i][1 + i] = 1
+    arr[1 + i][2 + i] = 1
+    arr[2 + i][0 + i] = 1
+    arr[2 + i][1 + i] = 1
+    arr[2 + i][2 + i] = 1
 
-# # ████
-# #   ████
-# #     ██
-# i = 5
-# arr[0 + i][0 + i] = 1
-# arr[0 + i][1 + i] = 1
-# arr[1 + i][1 + i] = 1
-# arr[1 + i][2 + i] = 1
-# arr[2 + i][2 + i] = 1
+def print_stable(arr):
 
-#   ██
-#     ██
-# ██████
-# i = 10
-# arr[0 + i][1 + i] = 1
-# arr[1 + i][2 + i] = 1
-# arr[2 + i][0 + i] = 1
-# arr[2 + i][1 + i] = 1
-# arr[2 + i][2 + i] = 1
+    # ████
+    #   ████
+    #     ██
 
-show_frame(arr)
+    i = 5
+    arr[0 + i][0 + i] = 1
+    arr[0 + i][1 + i] = 1
+    arr[1 + i][1 + i] = 1
+    arr[1 + i][2 + i] = 1
+    arr[2 + i][2 + i] = 1
 
-for _ in range(10000):
-    time.sleep(.05)
-    print_title_card()
-    arr = update_frame(arr)
+def print_preset(val):
+
+    arr = [[0 for i in range(100)] for j in range(50)]
+
+    if val == 1:
+        print_glider(arr)
+    elif val == 2:
+        print_stable(arr)
+    elif val == 3:
+        arr = np.random.randint(2, size=(50, 100))
+
     show_frame(arr)
+
+    for _ in range(10000):
+        time.sleep(.07)
+        print_title_card()
+        arr = update_frame(arr)
+        show_frame(arr)
+
+print("1. Glider")
+print("2. Stable Community")
+print("3. Random Generation")
+val = input("Choose a preset: ")
+print_preset(int(val))
