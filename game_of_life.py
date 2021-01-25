@@ -68,10 +68,10 @@ def update_frame(arr):
     return new_arr
 
 def show_frame(arr):
-    # os.system("cls")
+    os.system("cls")
 
-    for x in arr:
-        for y in x:
+    for row in arr[25:75]:
+        for y in row[50:150]:
             if y == 0:
                 print('  ', end='')
             else:
@@ -86,7 +86,7 @@ def print_glider(arr):
     #     ██
     # ██████
 
-    i = 5
+    i = 50
     arr[0 + i][1 + i] = 1
     arr[1 + i][2 + i] = 1
     arr[2 + i][0 + i] = 1
@@ -99,7 +99,7 @@ def print_stable(arr):
     #   ████
     #     ██
 
-    i = 5
+    i = 30
     arr[0 + i][0 + i] = 1
     arr[0 + i][1 + i] = 1
     arr[1 + i][1 + i] = 1
@@ -108,23 +108,24 @@ def print_stable(arr):
 
 def print_preset(val):
 
-    arr = [[0 for i in range(100)] for j in range(50)]
+    arr = [[0 for i in range(200)] for j in range(100)]
 
     if val == 1:
         print_glider(arr)
     elif val == 2:
         print_stable(arr)
     elif val == 3:
-        arr = np.random.randint(2, size=(50, 100))
+        arr = np.random.randint(2, size=(100, 200))
 
     show_frame(arr)
 
     for _ in range(10000):
-        time.sleep(.07)
-        print_title_card()
+        time.sleep(.1)
+        # print_title_card()
         arr = update_frame(arr)
         show_frame(arr)
 
+print_title_card()
 print("1. Glider")
 print("2. Stable Community")
 print("3. Random Generation")
