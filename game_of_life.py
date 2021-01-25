@@ -70,8 +70,8 @@ def update_frame(arr):
 def show_frame(arr):
     os.system("cls")
 
-    for row in arr[25:75]:
-        for y in row[50:150]:
+    for row in arr[50:75]:
+        for y in row[50:75]:
             if y == 0:
                 print('  ', end='')
             else:
@@ -110,7 +110,7 @@ def print_blinker(arr):
 
     # ██████
 
-    i = 50
+    i = 60
     arr[0 + i][0 + i] = 1
     arr[0 + i][1 + i] = 1
     arr[0 + i][2 + i] = 1
