@@ -23,7 +23,20 @@
 
 [gif_of_blinker]: https://github.com/xheiterolli/game_of_life/blob/main/images/Blinker.gif "Gif of Blinker"
 
-### 3. Random Generation
+### 3. Pattern
+██<br />
+██<br />
+██<br />
+██<br />
+██<br />
+██<br />
+██<br />
+
+![Gif of Pattern][gif_of_pattern]
+
+[gif_of_pattern]: https://github.com/xheiterolli/game_of_life/blob/main/images/Pattern.gif "Gif of Pattern"
+
+### 4. Random Generation
 
 ![Gif of Random Generation][gif_of_random_generation]
 

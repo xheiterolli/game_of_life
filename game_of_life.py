@@ -70,8 +70,8 @@ def update_frame(arr):
 def show_frame(arr):
     os.system("cls")
 
-    for row in arr[50:75]:
-        for y in row[50:75]:
+    for row in arr[25:75]:
+        for y in row[50:150]:
             if y == 0:
                 print('  ', end='')
             else:
@@ -86,7 +86,7 @@ def print_glider(arr):
     #     ██
     # ██████
 
-    i = 50
+    i = 40
     arr[0 + i][1 + i] = 1
     arr[1 + i][2 + i] = 1
     arr[2 + i][0 + i] = 1
@@ -110,10 +110,30 @@ def print_blinker(arr):
 
     # ██████
 
-    i = 60
+    i = 40
     arr[0 + i][0 + i] = 1
     arr[0 + i][1 + i] = 1
     arr[0 + i][2 + i] = 1
+
+def print_pattern(arr):
+
+    # ██
+    # ██
+    # ██
+    # ██
+    # ██
+    # ██
+    # ██
+
+    i = 60
+    arr[0 + i][0 + i] = 1
+    arr[1 + i][0 + i] = 1
+    arr[2 + i][0 + i] = 1
+    arr[3 + i][0 + i] = 1
+    arr[4 + i][0 + i] = 1
+    arr[5 + i][0 + i] = 1
+    arr[6 + i][0 + i] = 1
+
 
 def print_preset(val):
 
@@ -124,6 +144,8 @@ def print_preset(val):
     elif val == 2:
         print_blinker(arr)
     elif val == 3:
+        print_pattern(arr)
+    elif val == 4:
         arr = np.random.randint(2, size=(100, 200))
 
     show_frame(arr)
@@ -138,6 +160,7 @@ print_title_card()
 print("1. Glider")
 # print("2. Stable Community")
 print("2. Blinker")
-print("3. Random Generation")
+print("3. Pattern")
+print("4. Random Generation")
 val = input("Choose a preset: ")
 print_preset(int(val))
