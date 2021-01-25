@@ -93,18 +93,27 @@ def print_glider(arr):
     arr[2 + i][1 + i] = 1
     arr[2 + i][2 + i] = 1
 
-def print_stable(arr):
+# def print_stable(arr):
 
-    # ████
-    #   ████
-    #     ██
+#     # ████
+#     #   ████
+#     #     ██
 
-    i = 30
+#     i = 30
+#     arr[0 + i][0 + i] = 1
+#     arr[0 + i][1 + i] = 1
+#     arr[1 + i][1 + i] = 1
+#     arr[1 + i][2 + i] = 1
+#     arr[2 + i][2 + i] = 1
+
+def print_blinker(arr):
+
+    # ██████
+
+    i = 50
     arr[0 + i][0 + i] = 1
     arr[0 + i][1 + i] = 1
-    arr[1 + i][1 + i] = 1
-    arr[1 + i][2 + i] = 1
-    arr[2 + i][2 + i] = 1
+    arr[0 + i][2 + i] = 1
 
 def print_preset(val):
 
@@ -113,7 +122,7 @@ def print_preset(val):
     if val == 1:
         print_glider(arr)
     elif val == 2:
-        print_stable(arr)
+        print_blinker(arr)
     elif val == 3:
         arr = np.random.randint(2, size=(100, 200))
 
@@ -127,7 +136,8 @@ def print_preset(val):
 
 print_title_card()
 print("1. Glider")
-print("2. Stable Community")
+# print("2. Stable Community")
+print("2. Blinker")
 print("3. Random Generation")
 val = input("Choose a preset: ")
 print_preset(int(val))
